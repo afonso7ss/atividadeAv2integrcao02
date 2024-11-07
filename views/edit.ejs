@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/style.css">
+  <title>Update Task</title>
+</head>
+<body>
+  <h1>Update Task</h1>
+  <form action="/update/<%= task.id %>" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="<%= task.title %>" required>
+    <br>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description"><%= task.description %></textarea>
+    <br>
+    <label for="completed_at">Completion Date:</label>
+    <input type="datetime-local" id="completed_at" name="completed_at" value="<%= task.completed_at ? task.completed_at.toISOString().slice(0, 16) : '' %>">
+    <br>
+    <button type="submit">Update</button>
+  </form>
+</body>
+</html>
